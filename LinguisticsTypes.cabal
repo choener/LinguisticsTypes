@@ -1,5 +1,5 @@
 name:           LinguisticsTypes
-version:        0.0.0.1
+version:        0.0.0.2
 author:         Christian Hoener zu Siederdissen, 2015
 copyright:      Christian Hoener zu Siederdissen, 2015
 homepage:       https://github.com/choener/LinguisticsTypes
@@ -11,7 +11,7 @@ license-file:   LICENSE
 build-type:     Simple
 stability:      experimental
 cabal-version:  >= 1.10.0
-tested-with:    GHC == 7.8.4, GHC == 7.10.1
+tested-with:    GHC == 7.8.4, GHC == 7.10.2
 synopsis:       Collection of types for natural language
 description:
                 Types used for natural language applications. Includes an
@@ -72,10 +72,16 @@ test-suite properties
     tests
   default-language:
     Haskell2010
-  default-extensions: TemplateHaskell
+  default-extensions: BangPatterns
+                    , ScopedTypeVariables
+                    , TemplateHaskell
   build-depends: base
+               , aeson
+               , binary
+               , cereal
                , LinguisticsTypes
                , QuickCheck
+               , stringable
                , test-framework               >= 0.8  && < 0.9
                , test-framework-quickcheck2   >= 0.3  && < 0.4
                , test-framework-th            >= 0.2  && < 0.3

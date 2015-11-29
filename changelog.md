@@ -1,3 +1,8 @@
+0.0.0.2
+-------
+
+- added serialization property tests for BTI
+
 0.0.0.1
 -------
 
