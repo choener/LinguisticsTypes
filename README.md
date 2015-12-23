@@ -2,9 +2,9 @@
 
 # LinguisticsTypes
 
-Here we collect assorted types and basic operations on those. We also provide
-some connectivity with other approaches in different languages. To this end,
-newtypes for types in LingPy are available:
+Here we collect assorted types for linguistics and basic operations on those.
+We also provide some connectivity with other approaches in different languages.
+To this end, newtypes for types in LingPy are available:
 <http://lingulist.de/lingpy/tutorial/formats.html>
 
 The BTI module provides an internalized Text type to speed up algorithms on
