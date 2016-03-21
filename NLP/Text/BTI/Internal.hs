@@ -1,9 +1,5 @@
 
--- | This module keeps a persistent @bimap@ between @Text@s and @Int@s
---
--- TODO make this a bimap @Text <-> Vector@. Compare performance when
--- printing backtracking results. (Do this after the Builder-based
--- backtracking is online)
+-- | This module keeps a persistent @bimap@ between @Text@s and @Int@s.
 
 module NLP.Text.BTI.Internal where
 
@@ -11,11 +7,12 @@ import Data.IORef (newIORef,IORef,readIORef,atomicWriteIORef,atomicModifyIORef')
 import Data.Text (Text)
 import System.IO.Unsafe (unsafePerformIO,unsafeDupablePerformIO)
 
-import Data.Bijection.Hash (Bimap,empty,lookupL,lookupR,size,insert)
+import Data.Bijection.Hash -- (Bimap,empty,lookupL,lookupR,size,insert)
+import Data.Bijection.Vector
 
 
 
-btiBimap :: IORef (Bimap Text Int)
+btiBimap :: IORef (Bimap (HashMap Text Int) (Vector Text))
 btiBimap = unsafePerformIO $ newIORef empty
 {-# NoInline btiBimap #-}
 

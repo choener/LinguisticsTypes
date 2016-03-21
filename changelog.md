@@ -1,3 +1,8 @@
+0.0.0.3
+-------
+
+- uses heterogeneous bimaps now
+
 0.0.0.2
 -------
 
