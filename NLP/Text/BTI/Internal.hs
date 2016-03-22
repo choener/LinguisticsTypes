@@ -7,7 +7,7 @@ import Data.IORef (newIORef,IORef,readIORef,atomicWriteIORef,atomicModifyIORef')
 import Data.Text (Text)
 import System.IO.Unsafe (unsafePerformIO,unsafeDupablePerformIO)
 
-import Data.Bijection.Hash -- (Bimap,empty,lookupL,lookupR,size,insert)
+import Data.Bijection.HashMap
 import Data.Bijection.Vector
 
 
