@@ -21,7 +21,7 @@ btiBimap = unsafePerformIO $ newIORef empty
 -- direction.
 
 btiBimapAdd :: Text -> Int
-btiBimapAdd k = unsafeDupablePerformIO $ atomicModifyIORef' btiBimap $ \m ->
+btiBimapAdd k = seq k .unsafeDupablePerformIO . atomicModifyIORef' btiBimap $ \m ->
   case lookupL m k of Just i  -> (m,i)
                       Nothing -> let s = size m
                                  in  (insert m (k,s) , s)
@@ -31,11 +31,6 @@ btiBimapAdd k = unsafeDupablePerformIO $ atomicModifyIORef' btiBimap $ \m ->
 -- assumption.
 
 btiBimapLookupInt :: Int -> Text
-{-
-btiBimapLookupInt r = seq r . unsafeDupablePerformIO $ atomicModifyIORef' btiBimap $ \m ->
-  case lookupR m r of Just l  -> (m,l)
-                      Nothing -> error "btiBimapLookupInt: totality assumption invalidated"
--}
 btiBimapLookupInt r = seq r . unsafeDupablePerformIO $ go <$> readIORef btiBimap
   where go m = case (m `seq` lookupR m r) of
                  Just l  -> l

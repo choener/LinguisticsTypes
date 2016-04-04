@@ -6,8 +6,8 @@ import           Debug.Trace
 import qualified Data.Aeson as A
 import qualified Data.Binary as B
 import qualified Data.Serialize as S
-import           Test.Framework.Providers.QuickCheck2
-import           Test.Framework.TH
+import           Test.Tasty.QuickCheck
+import           Test.Tasty.TH
 
 import           NLP.Text.BTI
 
