@@ -16,8 +16,8 @@ import           Data.Binary      as DB
 import           Data.Hashable
 import           Data.Serialize   as DS
 import           Data.Serialize.Text
-import           Data.Stringable as SA
 import           Data.String as IS
+import           Data.String.Conversions
 import           Data.Text.Binary
 import           Data.Text (Text)
 import           Data.Vector.Unboxed.Deriving
@@ -53,7 +53,7 @@ instance IsString BTI where
   {-# Inline fromString #-}
 
 instance Show BTI where
-  showsPrec p i r = showsPrec p (toString i) r
+  showsPrec p i r = showsPrec p (btiToCS i :: String) r
   {-# Inline showsPrec #-}
 
 instance Read BTI where
@@ -62,6 +62,7 @@ instance Read BTI where
 
 instance Hashable BTI
 
+{-
 instance Stringable BTI where
   toString   = toString . btiBimapLookupInt . getBTI
   fromString = bti . SA.fromString
@@ -73,28 +74,38 @@ instance Stringable BTI where
   {-# Inline length     #-}
   {-# Inline toText     #-}
   {-# Inline fromText   #-}
+-}
+
+btiFromCS :: ConvertibleStrings x Text => x -> BTI
+btiFromCS = bti . convertString
+
+btiToCS :: ConvertibleStrings Text x => BTI -> x
+btiToCS = convertString . btiToText
+
+btiToText :: BTI -> Text
+btiToText = btiBimapLookupInt . getBTI
 
 instance NFData BTI where
   rnf = rnf . getBTI
   {-# Inline rnf #-}
 
 instance Binary BTI where
-  put = DB.put . toText
-  get = fromText <$> DB.get
+  put = DB.put . btiToText
+  get = bti <$> DB.get
   {-# Inline put #-}
   {-# Inline get #-}
 
 instance Serialize BTI where
-  put = DS.put . toText
-  get = fromText <$> DS.get
+  put = DS.put . btiToText
+  get = bti <$> DS.get
   {-# Inline put #-}
   {-# Inline get #-}
 
 instance FromJSON BTI where
-  parseJSON s = fromText <$> parseJSON s
+  parseJSON s = bti <$> parseJSON s
   {-# Inline parseJSON #-}
 
 instance ToJSON BTI where
-  toJSON = toJSON . toText
+  toJSON = toJSON . btiToText
   {-# Inline toJSON #-}
 
