@@ -22,6 +22,8 @@ import           Data.Text.Binary
 import           Data.Text (Text)
 import           Data.Vector.Unboxed.Deriving
 import           GHC.Generics
+import           Data.Text.Encoding (decodeUtf8,encodeUtf8)
+import           Data.ByteString (ByteString)
 
 import           NLP.Text.BTI.Internal
 
@@ -45,7 +47,7 @@ instance Ord BTI where
 -- | Handy wrapper to internalize a @Text@ and get a 'BTI'.
 
 bti :: Text -> BTI
-bti s = BTI $! btiBimapAdd s
+bti s = BTI $! btiBimapAdd $ encodeUtf8 s
 {-# Inline bti #-}
 
 instance IsString BTI where
@@ -62,20 +64,6 @@ instance Read BTI where
 
 instance Hashable BTI
 
-{-
-instance Stringable BTI where
-  toString   = toString . btiBimapLookupInt . getBTI
-  fromString = bti . SA.fromString
-  length     = SA.length . btiBimapLookupInt . getBTI
-  toText     = toText . btiBimapLookupInt . getBTI
-  fromText   = bti . fromText
-  {-# Inline toString   #-}
-  {-# Inline fromString #-}
-  {-# Inline length     #-}
-  {-# Inline toText     #-}
-  {-# Inline fromText   #-}
--}
-
 btiFromCS :: ConvertibleStrings x Text => x -> BTI
 btiFromCS = bti . convertString
 
@@ -83,7 +71,10 @@ btiToCS :: ConvertibleStrings Text x => BTI -> x
 btiToCS = convertString . btiToText
 
 btiToText :: BTI -> Text
-btiToText = btiBimapLookupInt . getBTI
+btiToText = decodeUtf8 . btiToUtf8
+
+btiToUtf8 :: BTI -> ByteString
+btiToUtf8 = btiBimapLookupInt . getBTI
 
 instance NFData BTI where
   rnf = rnf . getBTI
