@@ -28,7 +28,7 @@ Extra-Source-Files:
 
 library
   build-depends: base               >= 4.7      &&  < 5.0
-               , aeson              >= 0.8      &&  < 0.11
+               , aeson              >= 0.8      &&  < 0.12
                , bimaps             >= 0.1      &&  < 0.2
                , binary             >= 0.7      &&  < 0.8
                , bytestring         >= 0.10.4   &&  < 0.11

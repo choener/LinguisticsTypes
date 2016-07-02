@@ -1,12 +1,15 @@
-resolver: lts-5.10
+resolver: lts-6.5
+
 packages:
 - '.'
 - location: ../Lib-bimaps/
   extra-dep: true
+
 extra-deps:
-- cereal-text-0.1.0.1
+- cereal-text-0.1.0.2
 - intern-0.9.1.4
 - storable-record-0.0.3.1
 - storable-tuple-0.0.3.2
+
 flags: {}
 
