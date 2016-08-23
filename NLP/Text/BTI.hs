@@ -13,17 +13,17 @@ import           Control.Applicative
 import           Control.DeepSeq (NFData(..))
 import           Data.Aeson as A
 import           Data.Binary      as DB
+import           Data.ByteString (ByteString)
 import           Data.Hashable
 import           Data.Serialize   as DS
 import           Data.Serialize.Text
 import           Data.String as IS
 import           Data.String.Conversions
 import           Data.Text.Binary
+import           Data.Text.Encoding (decodeUtf8,encodeUtf8)
 import           Data.Text (Text)
 import           Data.Vector.Unboxed.Deriving
 import           GHC.Generics
-import           Data.Text.Encoding (decodeUtf8,encodeUtf8)
-import           Data.ByteString (ByteString)
 
 import           NLP.Text.BTI.Internal
 

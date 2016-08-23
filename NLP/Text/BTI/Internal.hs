@@ -3,9 +3,9 @@
 
 module NLP.Text.BTI.Internal where
 
+import Data.ByteString.UTF8
 import Data.IORef (newIORef,IORef,readIORef,atomicWriteIORef,atomicModifyIORef')
 import System.IO.Unsafe (unsafePerformIO,unsafeDupablePerformIO)
-import Data.ByteString.UTF8
 
 import Data.Bijection.HashMap
 import Data.Bijection.Vector
