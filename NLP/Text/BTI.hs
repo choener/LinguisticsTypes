@@ -7,7 +7,9 @@
 -- Since internalized @Text@ values are never released, be sure to use it
 -- sparingly. I.e. to internalize words, not full sentences.
 
-module NLP.Text.BTI where
+module NLP.Text.BTI
+  ( module NLP.Text.BTI
+  ) where
 
 import           Control.Applicative
 import           Control.DeepSeq (NFData(..))
