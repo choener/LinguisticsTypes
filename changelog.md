@@ -2,6 +2,7 @@
 -------
 
 - uses heterogeneous bimaps now
+- removed upper bounds
 
 0.0.0.2
 -------

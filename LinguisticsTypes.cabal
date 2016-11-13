@@ -1,5 +1,5 @@
 name:           LinguisticsTypes
-version:        0.0.0.2
+version:        0.0.0.3
 author:         Christian Hoener zu Siederdissen, 2015
 copyright:      Christian Hoener zu Siederdissen, 2015
 homepage:       https://github.com/choener/LinguisticsTypes
@@ -28,21 +28,21 @@ Extra-Source-Files:
 
 library
   build-depends: base               >= 4.7      &&  < 5.0
-               , aeson              >= 0.8      &&  < 1.1
-               , binary             >= 0.7      &&  < 0.8
-               , bytestring         >= 0.10.4   &&  < 0.11
-               , cereal             >= 0.4      &&  < 0.6
-               , cereal-text        >= 0.1      &&  < 0.2
-               , deepseq            >= 1.3      &&  < 1.5
-               , hashable           >= 1.2      &&  < 1.3
-               , intern             >= 0.9      &&  < 0.10
-               , log-domain         >= 0.10     &&  < 0.11
-               , QuickCheck         >= 2.7      &&  < 2.9
-               , string-conversions >= 0.4      &&  < 0.5
-               , text               >= 1.2      &&  < 1.3
-               , text-binary        >= 0.1      &&  < 0.3
-               , utf8-string        >= 1.0      &&  < 1.1
-               , vector-th-unbox    >= 0.2      &&  < 0.3
+               , aeson              >= 0.8
+               , binary             >= 0.7
+               , bytestring         >= 0.10.4
+               , cereal             >= 0.4
+               , cereal-text        >= 0.1
+               , deepseq            >= 1.3
+               , hashable           >= 1.2
+               , intern             >= 0.9
+               , log-domain         >= 0.10
+               , QuickCheck         >= 2.7
+               , string-conversions >= 0.4
+               , text               >= 1.2
+               , text-binary        >= 0.1
+               , utf8-string        >= 1.0
+               , vector-th-unbox    >= 0.2
                --
                , bimaps             == 0.1.0.*
   exposed-modules:
@@ -95,7 +95,7 @@ benchmark BenchmarkBuilder
   build-depends: base
                , bytestring
                , containers
-               , criterion                >= 1.0.2  &&  < 1.2
+               , criterion                >= 1.0.2
                , deepseq
                , LinguisticsTypes
                , text
