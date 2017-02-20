@@ -82,12 +82,13 @@ test-suite properties
                , aeson
                , binary
                , cereal
-               , LinguisticsTypes
                , QuickCheck
                , string-conversions
                , tasty                >= 0.11
                , tasty-quickcheck     >= 0.8
                , tasty-th             >= 0.1
+               --
+               , LinguisticsTypes
 
 
 
@@ -97,8 +98,9 @@ benchmark BenchmarkBuilder
                , containers
                , criterion                >= 1.0.2
                , deepseq
-               , LinguisticsTypes
                , text
+               --
+               , LinguisticsTypes
   hs-source-dirs:
     tests
   main-is:
