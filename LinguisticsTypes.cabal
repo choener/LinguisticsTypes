@@ -1,7 +1,7 @@
 name:           LinguisticsTypes
 version:        0.0.0.3
-author:         Christian Hoener zu Siederdissen, 2015
-copyright:      Christian Hoener zu Siederdissen, 2015
+author:         Christian Hoener zu Siederdissen, 2015-2017
+copyright:      Christian Hoener zu Siederdissen, 2015-2017
 homepage:       https://github.com/choener/LinguisticsTypes
 bug-reports:    https://github.com/choener/LinguisticsTypes/issues
 maintainer:     choener@bioinf.uni-leipzig.de
@@ -11,7 +11,7 @@ license-file:   LICENSE
 build-type:     Simple
 stability:      experimental
 cabal-version:  >= 1.10.0
-tested-with:    GHC == 7.8.4, GHC == 7.10.3, GHC == 8.0.1
+tested-with:    GHC == 7.10.3, GHC == 8.0.1
 synopsis:       Collection of types for natural language
 description:
                 Types used for natural language applications. Includes an
